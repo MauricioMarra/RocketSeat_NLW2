@@ -1,0 +1,100 @@
+EXPO
+====
+
+Para instalar o Expo é bem simples e o passo é o mesmo nos 3 sistemas operacionais. 
+
+- Com o Node e Yarn instalados, abra o terminal (no Windows, sem ser como admin) e execute:
+yarn global add expo-cli
+
+Caso você prefira utilizar o npm, basta executar:
+npm install expo-cli --global
+
+- Para verificar se a instalação ocorreu com sucesso, execute:
+expo --version
+
+
+Create react app with NPM:
+==========================
+npx create-react-app web --template typescript
+
+
+Create Node project:
+====================
+npm init -y -> Inicializa um projeto adicionando um pacote que conterá diretrizes e pacotes utilizados na aplicação node.
+npm install typescript -D -> Adiciona pacote TypeScript como uma dependência (-D) do projeto em questão e que não será usada em produção (-D : desenvolvimento).
+npx tsc --init -> Cria arquivo com configurações do typescript.
+	Alterar no tsconfig.json ->  "target": "es2017"
+	Versão do ECMA script que o Node entende.
+npm install ts-node-dev -D -> Faz o node executar o typescript do servidor e fica lendo por alterações no script. (Sem isso não ocorre atualização, precisando reiniciar o Node).
+Adicionar ao package.json
+	"start": "tsnd --transpile-only --ignore-watch node_modules --respawn src/server.ts"
+	tsnd para iniciar node
+	transpile only para converter typescript para javascript sem procurar erros
+	ignore watch para não converter arquivos de dependências de terceiros
+	respawn para não terminar o comando tsnd (ficar aguardando)
+	
+	
+KNEX e NPM
+==========
+Para executar knexmigrate com NPM, usar: npm run knexmigrate (knex migrate configurado no package.json, scripts).
+
+
+Create react app mobile
+=======================
+
+Expo init mobile
+Choose blank typescript as template
+After this, npm start na pasta mobile
+Abrirá uma página que será o painel de controle da aplicação. Nela há um endereço exp://... que será utilizado no desenvolvimento. Haverá também um QRCode que eu posso scanear no celular, depois de ter baixado o expo client.
+
+
+Instalando fontes do google com expo
+====================================
+
+A forma de se utilizar as fontes do google difere do projeto ReactJS. Usar:
+expo install expo-font @expo-google-fonts/archivo @expo-google-fonts/poppins
+
+
+Instalando extensão de navegação/rotas do React Native
+======================================================
+npm install @react-navigation/native
+
+Como o projeto é gerenciado pelo Expo, usar a dependência abaixo:
+expo install react-native-gesture-handler react-native-reanimated react-native-screens react-native-safe-area-context @react-native-community/masked-view
+
+npm install @react-navigation/stack
+Esse suporta a navegação em pilha.
+
+npm install @react-navigation/bottom-tabs
+Navegação por abas.
+
+
+EXTRAS
+======
+//http://localhost:3333/users -> isso é uma rota; users é um recurso
+//http://localhost:3333/products -> isso é uma rota, products é um recurso
+
+//Métodos
+//GET: buscar informação, POST: Criar alguma nova informação, PUT: Atualizar, DELETE: Duh.
+//Route params: identifica qual recurso quero atualizar/deletar -> post('/users/:id', ...)
+//Query params: paginação, filtros, ordenação -> http://.../users?id=1&sort=nome...
+
+//Parametros (requisição)
+//Corpo ou request body: dados de criação ou atualização de registro.
+
+Instalar package cors
+Por padrão o KNEX só permite comunicação entre front e back através de um endereço/porta. O cors vai permitir que front e back estejam em endereços diferente e mesmo assim se comuniquem.
+
+Instalar na interface, axios
+Ajuda a consumir APIs externas com a facilidade de utilização do insomnia (por exemplo).
+
+Utilizar package expo picker para os selects de dia da semana, matéria...
+
+
+C:\Users\mauricio.mauricio-PC.000\Documents\GitHub\RocketSeat_NLW2\nlw2\web\src\assets\images\Prof_01_nlw2.gif
+https://avatars1.githubusercontent.com/u/52969819?s=400&v=4
+
+Desafios do NLW2:
+
+
+
